@@ -47,5 +47,19 @@
   <script src="./js/index.js"></script>
    <!-- indexDB file -->
    <script src="./js/idb.js"></script>
+   <!-- register service worker-->
+<!--Note that we don't need to add a <script src="./service-worker.js"> tag, because navigator.serviceWorker.register("./service-worker.js") does that for us-->
+  <script type="text/javascript">
+    (function() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('./service-worker.js')
+          .then(() => console.log('Service Worker registered successfully.'))
+          .catch(error =>
+            console.log('Service Worker registration failed:', error)
+          );
+      }
+    })();
+  </script>
 </body>
 </html>
